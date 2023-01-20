@@ -1,11 +1,11 @@
-name: packages
+name: ui
 
 on:
   push:
     branches: [main]
     paths:
-      - 'packages/**'
-      - '.github/workflow/packages.yaml'
+      - 'packages/ui/**'
+      - '.github/workflow/ui.yaml'
   pull_request:
     branches: [main]
 
