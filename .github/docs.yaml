@@ -30,8 +30,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
-        working-directory: ./apps/docs
-        run: pnpm build
+        run: pnpm build --filter=docs
       # - name: Test
       #   working-directory: ./apps/docs
       #   run: pnpm test
