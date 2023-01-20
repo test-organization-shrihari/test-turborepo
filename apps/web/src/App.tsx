@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "ui";
+import { Link, Button } from "ui";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Button />
         <h1 className="header">
           Web
           <div className="Turborepo">Turborepo Example</div>
