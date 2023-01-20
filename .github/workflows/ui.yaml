@@ -32,7 +32,7 @@ jobs:
         id: node-cache
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-npm-cache-
 
@@ -40,6 +40,6 @@ jobs:
       - name: Download dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
-        
+
       - run: pnpm build --filter=ui --filter=docs --filter=web 
       # - run: pnpm test
