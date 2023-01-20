@@ -1,8 +1,11 @@
-name: root
+name: packages
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'packages/**'
+      - '.github/workflow/packages.yaml'
   pull_request:
     branches: [main]
 
@@ -26,5 +29,5 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      run: pnpm build --filter=ui --filter=docs --filter=web 
       # - run: pnpm test
