@@ -20,11 +20,13 @@ jobs:
         with:
           version: 7.15.0
       - name: Use Node.js ${{ matrix.node-version }}
+        id: node-cache
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - name: Install dependencies
+      - name: Download dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
       - run: pnpm build
       # - run: pnpm test
