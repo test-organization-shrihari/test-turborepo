@@ -17,10 +17,6 @@ jobs:
       matrix:
         node-version: [14.x]
 
-    defaults:
-      run:
-        working-directory: ./apps/docs
-
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2.0.1
@@ -34,8 +30,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
-        working-directory: ./apps/docs
-        run: pnpm build
+        run: pnpm build --filter=docs
       # - name: Test
       #   working-directory: ./apps/docs
       #   run: pnpm test
