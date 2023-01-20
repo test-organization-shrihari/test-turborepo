@@ -1,4 +1,4 @@
 import * as React from "react";
 export const Button = () => {
-  return <button>Toop</button>;
+  return <button>Goop</button>;
 };
