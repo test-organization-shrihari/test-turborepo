@@ -3,6 +3,8 @@ name: root
 on:
   push:
     branches: [main]
+    paths:
+      - 'packages/**'
   pull_request:
     branches: [main]
 
