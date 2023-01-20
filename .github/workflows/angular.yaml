@@ -1,10 +1,10 @@
-name: 'angular'
+name: angular
 
 on:
   push:
     branches: [main]
     paths:
-      - 'apps/angularjs-app/**'
+      - 'packages/angularjs-app/**'
       - '.github/workflow/angular.yaml'
   pull_request:
     branches: [main]
@@ -27,10 +27,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v2
+        with:
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ github.ref_name }}-
+      
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build
-        run: pnpm build --filter=demo-angular-app
-      # - name: Test
-      #   working-directory: ./apps/docs
-      #   run: pnpm test
+      - run: pnpm build --filter=demo-angular-app --cache-dir=".turbo"
+      # - run: pnpm test
