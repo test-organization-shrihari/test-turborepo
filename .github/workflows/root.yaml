@@ -38,6 +38,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Download dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm ci --strict-peer-deps
+        run: pnpm install --frozen-lockfile
       - run: pnpm build
       # - run: pnpm test
