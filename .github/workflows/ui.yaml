@@ -29,5 +29,5 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      run: pnpm build --filter=ui --filter=docs --filter=web 
+      - run: pnpm build --filter=ui --filter=docs --filter=web 
       # - run: pnpm test
