@@ -1,0 +1,4 @@
+{
+  "extends": "tsconfig/ui-app-react-2.json",
+  "include": ["src"]
+}

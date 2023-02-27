@@ -1,12 +1,12 @@
 {
-  "name": "docs",
+  "name": "ui-app-react-1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
     "dev": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.ts*\"",
     "clean": "rm -rf build"
@@ -15,8 +15,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "ui": "workspace:*",
-    "web-vitals": "^2.1.2"
+    "shared-ui": "workspace:*",
+    "web-vitals": "^2.1.2",
+    "eslint-config-custom": "*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",

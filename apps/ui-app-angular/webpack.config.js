@@ -7,10 +7,9 @@ module.exports = function (env = {}) {
     const isProd = !!env.prod;
     const buildpath = env.buildpath ? env.buildpath : isProd ? 'dist' : 'build';
     return  {
-    entry: './app/bootstrap.js',
+    entry: './app/index.js',
     output: {
         path: path.resolve(__dirname, buildpath),
-        filename: 'app.bundle.js',
         clean: true
 
     },
@@ -36,14 +35,6 @@ module.exports = function (env = {}) {
     },
 
     plugins:[
-        new ModuleFederationPlugin({
-            name: 'angularApp',
-            library: { type:'var', name:'angularApp'},
-            filename: 'remoteEntry.js',
-            exposes:{
-                './Angular': path.resolve(__dirname, 'app/bootstrap.js'),
-            }
-        }),
         new HtmlWebpackPlugin({
             template: `./views/index.ejs`,
             minify: false,

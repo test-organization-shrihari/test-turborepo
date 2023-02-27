@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "shared-ui",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -10,7 +10,8 @@
     "build": "tsup src/index.tsx --format cjs --dts --external react",
     "clean": "rm -rf dist",
     "dev": "tsup src/index.tsx --format cjs --watch --dts --external react",
-    "lint": "eslint \"src/**/*.ts*\""
+    "lint": "eslint \"src/**/*.ts*\"",
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "@types/react": "^17.0.13",
